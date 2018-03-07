@@ -2,18 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import DrawerView from './components/DrawerView.jsx';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
+  _handleLeftIconButtonClick = () => {
+    this.refs.drawerview.switchDrawer();
   }
 
   render() {
     return (
       <MuiThemeProvider>
-        <AppBar  title="Title"
-                iconClassNameRight="muidocs-icon-navigation-expand-more" />
+        <div>
+          <AppBar title="Android Tools"
+                  iconClassNameRight="muidocs-icon-navigation-expand-more"
+                  onLeftIconButtonClick={this._handleLeftIconButtonClick}
+                  onTitleClick={this._handleLeftIconButtonClick} />
+          <DrawerView  ref="drawerview" />
+        </div>
+
       </MuiThemeProvider>
     );
   }
