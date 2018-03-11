@@ -1,25 +1,24 @@
+//$ adb logcat | node app.js xxx
 var color = require('./color.js');
 var cmd = require('./process.js');
 var pid = require('./pid.js');
+var daemon = require('./daemon.js');
+var mPackageName = "";
 
-pid.pid(process.argv[2], function(res) {
-  cmd.read(res[1], function(res) {
-    switch (res.tag) {
-      case 'V':
-        color.verbose(res.line);
-        break;
-      case 'I':
-        color.info(res.line);
-        break;
-      case 'D':
-        color.debug(res.line)
-        break;
-      case 'W':
-        color.warn(res.line)
-        break;
-      case 'E':
-        color.error(res.line)
-        break;
-    }
+pid.pid(process.argv[2], function(pids) {
+  mPackageName = process.argv[2];
+  cmd.read(pids[1], function(res) {
+    color.render(res);
   });
+});
+
+daemon.daemon(process.argv[2], function(find){
+  if (find){
+    pid.pid(mPackageName, function(pids) {
+      cmd.setPid(pids[1]);
+    });
+  }else {
+      cmd.setPid("");
+      color.wtf("#############################");
+  }
 });

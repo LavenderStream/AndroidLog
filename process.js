@@ -2,16 +2,18 @@ var readline = require('readline');
 var exec = require('child_process').exec;
 
 var respone = {};
+var mPid;
 
 function readLine(pid, callback) {
+  mPid = pid;
   var rl = readline.createInterface(process.stdin, null);
   rl.on('line', function(line) {
+    if (mPid === "") return;
     var lines = line.split(/\s+/);
-    //console.log("line: " + lines);
     var l = lines[4];
     var p = lines[2];
-    var f = p == pid;
-    if (!pid) {
+    var f = (p == mPid);
+    if (!mPid) {
       f = true;
     }
     if (l && f) {
@@ -24,4 +26,9 @@ function readLine(pid, callback) {
   });
 }
 
+function setPid(pid){
+  mPid = pid;
+}
+
 exports.read = readLine
+exports.setPid = setPid
