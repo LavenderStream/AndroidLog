@@ -22,6 +22,4 @@ function isContains(str, substr) {
     return str.indexOf(substr) >= 0;
 }
 
-//startDaemon("com.segway.robot.client");
-
 exports.daemon = startDaemon

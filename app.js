@@ -1,8 +1,9 @@
 //$ adb logcat | node app.js xxx
-var color = require('./color.js');
-var cmd = require('./process.js');
-var pid = require('./pid.js');
-var daemon = require('./daemon.js');
+var color = require('./src/color.js');
+var cmd = require('./src/process.js');
+var pid = require('./src/pid.js');
+var daemon = require('./src/daemon.js');
+var loading = require('./src/loading.js');
 var mPackageName = "";
 
 pid.pid(process.argv[2], function(pids) {
@@ -12,13 +13,14 @@ pid.pid(process.argv[2], function(pids) {
   });
 });
 
-daemon.daemon(process.argv[2], function(find){
-  if (find){
+daemon.daemon(process.argv[2], function(find) {
+  if (find) {
+    loading.stop();
     pid.pid(mPackageName, function(pids) {
       cmd.setPid(pids[1]);
     });
-  }else {
-      cmd.setPid("");
-      color.wtf("#############################");
+  } else {
+    cmd.setPid("");
+    loading.start();
   }
 });
