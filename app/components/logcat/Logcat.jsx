@@ -9,24 +9,36 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
+const devices = window.require('./app/local/Devices.js');
+
 export default class Logcat extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      value: 1
+      value: 0,
+      devices: []
     };
   }
 
-  handleChange = (event, index, value) => this.setState({value});
+  componentWillMount() {
+    devices.findDevices(this.handleDevices);
+  }
+
+  handleDevices = (dev) => {
+    this.setState({devices: dev});
+  }
+
+  handleChange = (event, index, value) => this.setState({value: value});
 
   render() {
     var pidItemViews = [];
-    for (var i = 0; i < 10; i++) {
-      pidItemViews.push(<MenuItem key={i} value={i} primaryText={i}/>);
+    for (var i = 0; i < this.state.devices.length; i++) {
+      pidItemViews.push(<MenuItem key={i} value={i} primaryText={this.state.devices[i].model + " : " + this.state.devices[i].name}/>);
     }
 
     return (<div>
+      {process.versions.node}
       <Toolbar>
         <ToolbarGroup firstChild={true}>
           <DropDownMenu value={this.state.value} onChange={this.handleChange}>
