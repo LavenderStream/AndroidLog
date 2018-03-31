@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DrawerView from './components/DrawerView.jsx';
-import Logcat from './components/logcat/Logcat.jsx'
-import About from './components/logcat/About.jsx'
+import Logcat from './components/view/Logcat.jsx';
+import About from './components/view/About.jsx';
+import Format from './components/view/Format.jsx';
 
 import { HashRouter , Route } from 'react-router-dom'
 
@@ -12,7 +13,7 @@ class App extends React.Component {
 
   _handleLeftIconButtonClick = () => {
     this.refs.drawerview.switchDrawer();
-  }
+  };
 
   render() {
     return (
@@ -24,6 +25,7 @@ class App extends React.Component {
 
             <Route exact path="/" component={About}/>
             <Route path="/log" component={Logcat}/>
+            <Route path="/format" component={Format}/>
           </div>
         </MuiThemeProvider>
       </HashRouter>

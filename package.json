@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "child_process": "^1.0.2",
+    "js-beautify": "^1.7.5",
     "material-ui": "^0.20.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",

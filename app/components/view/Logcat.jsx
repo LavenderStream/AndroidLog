@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -27,13 +26,13 @@ export default class Logcat extends React.Component {
 
   handleDevices = (dev) => {
     this.setState({devices: dev});
-  }
+  };
 
   handleChange = (event, index, value) => this.setState({value: value});
 
   render() {
-    var pidItemViews = [];
-    for (var i = 0; i < this.state.devices.length; i++) {
+    let pidItemViews = [];
+    for (let i = 0; i < this.state.devices.length; i++) {
       pidItemViews.push(<MenuItem key={i} value={i} primaryText={this.state.devices[i].model + " : " + this.state.devices[i].name}/>);
     }
 
