@@ -1,5 +1,5 @@
 {
-  "name": "android_log",
+  "name": "android_tool",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "child_process": "^1.0.2",
+    "fs": "0.0.1-security",
     "js-beautify": "^1.7.5",
     "material-ui": "^0.20.0",
     "prop-types": "^15.6.1",

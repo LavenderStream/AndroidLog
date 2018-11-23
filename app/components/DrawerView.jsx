@@ -24,7 +24,7 @@ export default class DrawerView extends React.Component {
                 open={this.state.open}
                 onRequestChange={this._handleRequestChange}>
                 <MenuItem onClick={this._handleFormatClick}>Format</MenuItem>
-                <MenuItem onClick={this._handleLogCatClick}>Logcat</MenuItem>
+                <MenuItem onClick={this._handleConfigToolClick}>Config</MenuItem>
                 <MenuItem onClick={this._handleAboutClick}>About</MenuItem>
             </Drawer>
         );
@@ -36,10 +36,9 @@ export default class DrawerView extends React.Component {
         });
     };
 
-    _handleLogCatClick = () => {
+    _handleConfigToolClick = () => {
         this._handleClose();
-        window.location.href = "index.html#/log";
-
+        window.location.href = "index.html#/config";
     };
 
     _handleAboutClick = () => {

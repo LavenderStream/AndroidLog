@@ -56,11 +56,13 @@ export default class Format extends React.Component {
             width -= 3;
             this.setState({width, height});
         } catch (ignore) {
-            console.log("ignore: " + ignore);
+            console.log("In Format component ignore: " + ignore);
         }
     };
 
-    handleChange = (event, index, value) => this.setState({value: value});
+    handleChange = (event, index, value) => {
+        this.setState({value: value});
+    };
 
     render() {
         let typeItemViews = [];
@@ -68,6 +70,9 @@ export default class Format extends React.Component {
             typeItemViews.push(<MenuItem key={i} value={i}
                                          primaryText={this.props.fileType[i]}/>);
         }
+
+        let tip = this.props.fileType[this.state.value];
+
         return (<div>
             <Toolbar ref="tool_bar">
                 <ToolbarGroup firstChild={false}>
@@ -75,13 +80,22 @@ export default class Format extends React.Component {
                         {typeItemViews}
                     </DropDownMenu>
                 </ToolbarGroup>
-                <RaisedButton label="haha" secondary={true} style={styles.runBtnStyle} onClick={this._handleFormat}/>
+                <RaisedButton label="haha" secondary={true} style={styles.runBtnStyle}
+                              onClick={this._handleFormat}/>
             </Toolbar>
-            <textarea
-                ref="text_field"
-                style={{width: this.state.width, height: this.state.height, border: 0}}
-                defaultValue={"骚年, 来段" + this.props.fileType[this.state.value]}
-            />
+            <div>
+                <textarea
+                    key={this.state.value}
+                    ref="text_field"
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        border: 'none',
+                        outline: 'none',
+                        resize: 'none'
+                    }}
+                    defaultValue={"骚年, 来段" + tip}/>
+            </div>
         </div>);
     }
 
