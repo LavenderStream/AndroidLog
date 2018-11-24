@@ -20,9 +20,11 @@ class App extends React.Component {
             <HashRouter>
                 <MuiThemeProvider>
                     <div>
-                        <AppBar title="Android Tools"
-                                iconClassNameRight="muidocs-icon-navigation-expand-more"
-                                onLeftIconButtonClick={this._handleLeftIconButtonClick}/>
+                        <AppBar
+                            ref="apActionBar"
+                            title="Android Tools"
+                            iconClassNameRight="muidocs-icon-navigation-expand-more"
+                            onLeftIconButtonClick={this._handleLeftIconButtonClick}/>
                         <DrawerView ref="drawerview"/>
 
                         <Route exact path="/" component={About}/>

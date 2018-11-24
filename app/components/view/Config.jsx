@@ -18,7 +18,10 @@ const styles = {
     toolButton: {
         margin: 12
     },
-    snackbar: {}
+    snackbar: {},
+    tvInput: {
+        display: 'blockstyle={styles.tvInput} '
+    }
 };
 
 export default class Config extends React.Component {
@@ -37,7 +40,7 @@ export default class Config extends React.Component {
             snackMessage: "",
             catMessage: '',
             snackbar: false,
-            dialog: false,
+            dialogCat: false,
             disable: false,
             // Devices index
             value: 0,
@@ -50,7 +53,7 @@ export default class Config extends React.Component {
         devices.findDevices(this.handleDevices);
         this.state.timer = setInterval(() => {
             devices.findDevices(this.handleDevices);
-        }, 5000);
+        }, 2000);
     }
 
     componentWillUnmount() {
@@ -96,11 +99,11 @@ export default class Config extends React.Component {
     };
 
     _handleCatDialogOpen = () => {
-        this.setState({dialog: true});
+        this.setState({dialogCat: true});
     };
 
     _handleCatDialogClose = () => {
-        this.setState({dialog: false});
+        this.setState({dialogCat: false});
     };
 
     _handleEditDialogOpen = () => {
@@ -222,7 +225,7 @@ export default class Config extends React.Component {
             {/*查看配置的dialog*/}
             <Dialog
                 modal={false}
-                open={this.state.dialog}
+                open={this.state.dialogCat}
                 onRequestClose={this._handleCatDialogClose}>
                 {this.state.catMessage}
             </Dialog>
@@ -232,9 +235,9 @@ export default class Config extends React.Component {
                 actions={actions}
                 open={this.state.dialogEdit}
                 onRequestClose={this._handleEditDialogClose}>
-                <TextField hintText="机器人id" onChange={this._handleRobotId}/>
-                <TextField hintText="Host" onChange={this._handleHost}/>
-                <TextField hintText="Stomp host" onChange={this._handleStomp}/>
+                <TextField style={styles.tvInput} hintText="机器人id" onChange={this._handleRobotId}/>
+                <TextField style={styles.tvInput} hintText="Host" onChange={this._handleHost}/>
+                <TextField style={styles.tvInput} hintText="Stomp host" onChange={this._handleStomp}/>
             </Dialog>
 
             {/*信息提示*/}

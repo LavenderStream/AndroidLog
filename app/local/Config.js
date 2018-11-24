@@ -4,10 +4,12 @@ let beautifyJs = require('js-beautify');
 let path = require('path');
 
 function push(device, callback) {
+    if(!device) callback("没手机");
     exec("adb -s " + device.id + " push " + "./config.json /sdcard/package.json", callback);
 }
 
 function edit(device, robotId, host, stomp, callback) {
+    if(!device) callback("没手机");
     let json = {
         "host": host,
         "robotId": robotId,
@@ -18,6 +20,7 @@ function edit(device, robotId, host, stomp, callback) {
 }
 
 function log(device, callback) {
+    if(!device) callback("没手机");
     exec("adb -s " + device.id + " pull /sdcard/ex/ ", callback);
 }
 

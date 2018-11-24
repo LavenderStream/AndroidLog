@@ -28,36 +28,28 @@ export default class Format extends React.Component {
         this.state = {
             value: 0,
             text: "",
-            width: props.width || -1,
-            height: props.height || -1
+            top: 0,
         };
     }
 
     componentWillMount() {
+        //window.addEventListener('resize', () => this.updateSize());
+    }
+
+    componentDidMount() {
         this.updateSize();
-        window.addEventListener('resize', () => this.updateSize());
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', () => this.updateSize());
+        //window.removeEventListener('resize', () => this.updateSize());
     }
 
     updateSize = () => {
-        try {
-            const parentDom = ReactDOM.findDOMNode(this).parentNode;
-            let {width, height} = this.props;
-            //如果props没有指定height和width就自适应
-            if (!width) {
-                width = parentDom.offsetWidth;
-            }
-            if (!height) {
-                height = width * 0.38;
-            }
-            width -= 3;
-            this.setState({width, height});
-        } catch (ignore) {
-            console.log("In Format component ignore: " + ignore);
-        }
+        const titleBar = ReactDOM.findDOMNode(this.refs.toolbar);
+        const actionBar = ReactDOM.findDOMNode(this).parentNode.childNodes.item(0);
+        const top = actionBar.offsetHeight + titleBar.offsetHeight - 5;
+
+        this.setState({top});
     };
 
     handleChange = (event, index, value) => {
@@ -74,7 +66,7 @@ export default class Format extends React.Component {
         let tip = this.props.fileType[this.state.value];
 
         return (<div>
-            <Toolbar ref="tool_bar">
+            <Toolbar ref='toolbar'>
                 <ToolbarGroup firstChild={false}>
                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
                         {typeItemViews}
@@ -83,19 +75,22 @@ export default class Format extends React.Component {
                 <RaisedButton label="haha" secondary={true} style={styles.runBtnStyle}
                               onClick={this._handleFormat}/>
             </Toolbar>
-            <div>
-                <textarea
-                    key={this.state.value}
-                    ref="text_field"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        border: 'none',
-                        outline: 'none',
-                        resize: 'none'
-                    }}
-                    defaultValue={"骚年, 来段" + tip}/>
-            </div>
+            <textarea
+                key={this.state.value}
+                ref="text_field"
+                style={{
+                    position: 'absolute',
+                    padding: 16,
+                    left: 0,
+                    top: this.state.top,
+                    bottom: 0,
+                    width: '100%',
+                    boxSizing: 'border-box',
+                    border: 'none',
+                    outline: 'none',
+                    resize: 'none'
+                }}
+                defaultValue={"骚年, 来段" + tip}/>
         </div>);
     }
 
