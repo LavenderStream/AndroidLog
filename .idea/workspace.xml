@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a1275848-181a-4fae-9f11-b3f18380ba2e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/App.jsx" afterPath="$PROJECT_DIR$/app/App.jsx" />
-      <change beforePath="$PROJECT_DIR$/app/components/view/About.jsx" afterPath="$PROJECT_DIR$/app/components/view/About.jsx" />
-      <change beforePath="$PROJECT_DIR$/app/components/view/Config.jsx" afterPath="$PROJECT_DIR$/app/components/view/Config.jsx" />
-      <change beforePath="$PROJECT_DIR$/app/components/view/Format.jsx" afterPath="$PROJECT_DIR$/app/components/view/Format.jsx" />
-      <change beforePath="$PROJECT_DIR$/app/local/Config.js" afterPath="$PROJECT_DIR$/app/local/Config.js" />
-      <change beforePath="$PROJECT_DIR$/config.json" afterPath="$PROJECT_DIR$/config.json" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,8 +20,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+            <state relative-caret-position="420">
+              <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -193,16 +182,15 @@
       <updated>1522461031822</updated>
       <workItem from="1522461034709" duration="12103000" />
       <workItem from="1542954027087" duration="18028000" />
-      <workItem from="1543033396734" duration="16991000" />
+      <workItem from="1543033396734" duration="17356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47122000" />
+    <option name="totallyTimeSpent" value="47487000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17979905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -435,8 +423,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="420">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding />
         </state>
       </provider>
